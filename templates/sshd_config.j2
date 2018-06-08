@@ -1,0 +1,22 @@
+{% for hostkey in sshd_hostkeys %}
+HostKey {{ hostkey }}
+{% endfor %}
+
+KexAlgorithms {{ sshd_kexalgorithms|join(',') }}
+Ciphers {{ sshd_ciphers|join(',') }}
+MACs {{ sshd_macs|join(',') }}
+
+UsePAM yes
+AuthenticationMethods {{ sshd_authmethods|join(' ') }}
+PermitRootLogin {{ sshd_permitrootlogin }}
+
+LogLevel {{ sshd_loglevel }}
+{% for subsystem in sshd_subsystems %}
+Subsystem {{ subsystem }}
+{% endfor %}
+
+{% if sshd_extra %}
+{{ sshd_extra }}
+{% endif %}
+
+UsePrivilegeSeparation sandbox
