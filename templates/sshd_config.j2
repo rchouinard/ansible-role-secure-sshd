@@ -19,4 +19,6 @@ Subsystem {{ subsystem }}
 {{ sshd_extra }}
 {% endif %}
 
+{% if ansible_distribution != "Fedora" %}
 UsePrivilegeSeparation sandbox
+{% endif %}
