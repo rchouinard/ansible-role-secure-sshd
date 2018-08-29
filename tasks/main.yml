@@ -1,5 +1,6 @@
 ---
 - name: Install modern configuration
+  become: yes
   template:
     src: sshd_config.j2
     dest: /etc/ssh/sshd_config
@@ -8,6 +9,7 @@
   notify: restart sshd
 
 - name: Deactivate short moduli
+  become: yes
   command: /bin/sh -c 'cp -a /etc/ssh/moduli /etc/ssh/moduli.bak && awk '"'"'$5 >= 3071'"'"' /etc/ssh/moduli > /etc/ssh/moduli.tmp && mv /etc/ssh/moduli.tmp /etc/ssh/moduli'
   args:
     creates: /etc/ssh/moduli.bak
