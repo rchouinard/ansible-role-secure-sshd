@@ -1,4 +1,11 @@
 ---
+- name: Get OpenSSH Server version
+  command: rpm --query --queryformat %{VERSION} openssh-server
+  args:
+    warn: False
+  register: openssh_version
+  changed_when: False
+
 - name: Install modern configuration
   become: yes
   template:

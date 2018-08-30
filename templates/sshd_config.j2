@@ -19,6 +19,6 @@ Subsystem {{ subsystem }}
 {{ sshd_extra }}
 {% endif %}
 
-{% if ansible_distribution != "Fedora" %}
+{% if openssh_version is version('7.5', '<') %}
 UsePrivilegeSeparation sandbox
 {% endif %}
