@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Ryan Chouinard
-  description: Secure SSH for Fedora
+  description: Secure SSH based on Mozilla's modern guidelines
   license: MIT
   min_ansible_version: 2.4
   platforms:
