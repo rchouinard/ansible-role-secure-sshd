@@ -1,3 +1,5 @@
+{{ ansible_managed | comment }}
+
 {% for hostkey in sshd_hostkeys %}
 HostKey {{ hostkey }}
 {% endfor %}
@@ -17,8 +19,4 @@ Subsystem {{ subsystem }}
 
 {% if sshd_extra %}
 {{ sshd_extra }}
-{% endif %}
-
-{% if openssh_version is version('7.5', '<') %}
-UsePrivilegeSeparation sandbox
 {% endif %}
