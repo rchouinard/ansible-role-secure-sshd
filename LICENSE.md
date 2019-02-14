@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2018 Ryan Chouinard <rchouinard@gmail.com>
+Copyright © 2019 Ryan Chouinard <rchouinard@gmail.com>
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
