@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Ryan Chouinard
+  author: rchouinard
   description: Secure SSH based on Mozilla's modern guidelines
   role_name: secure-sshd
   license: MIT
