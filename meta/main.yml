@@ -8,10 +8,12 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
+        - 8
         - 7
     - name: Fedora
       versions:
-        - 28
-        - 27
+        - 31
+        - 30
+        - 29
   galaxy_tags: []
 dependencies: []
