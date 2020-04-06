@@ -2,18 +2,18 @@
 galaxy_info:
   author: rchouinard
   description: Secure SSH based on Mozilla's modern guidelines
-  role_name: secure-sshd
+  role_name: secure_sshd
   license: MIT
   min_ansible_version: 2.4
   platforms:
-    - name: EL
-      versions:
-        - 8
-        - 7
-    - name: Fedora
-      versions:
-        - 31
-        - 30
-        - 29
+  - name: EL
+    versions:
+    - 8   # EOL May 31, 2029
+    - 7   # EOL June 30, 2024
+  - name: Fedora
+    versions: # Current release - 1, rawhide
+    - rawhide
+    - 31
+    - 30
   galaxy_tags: []
 dependencies: []

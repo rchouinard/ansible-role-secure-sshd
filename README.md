@@ -69,7 +69,7 @@ None.
 ``` yaml
 - hosts: localhost
   roles:
-    - rchouinard.secure-sshd
+    - rchouinard.secure_sshd
 ```
 
 ## License
