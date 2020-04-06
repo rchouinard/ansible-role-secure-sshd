@@ -1,5 +1,4 @@
 ---
-
 - name: Install modern configuration
   template:
     src: sshd_config.j2
@@ -9,7 +8,14 @@
   notify: restart sshd
 
 - name: Deactivate short moduli
-  command: /bin/sh -c 'cp -a /etc/ssh/moduli /etc/ssh/moduli.bak && awk '"'"'$5 >= 3071'"'"' /etc/ssh/moduli > /etc/ssh/moduli.tmp && mv /etc/ssh/moduli.tmp /etc/ssh/moduli'
-  args:
+  shell:
+    executable: /bin/sh
+    cmd: |
+      set -eu
+      tmpfile=$(mktemp /tmp/moduli.XXXX)
+      awk '$5 >= 3071' /etc/ssh/moduli > $tmpfile
+      cp -a /etc/ssh/moduli /etc/ssh/moduli.bak
+      cat $tmpfile > /etc/ssh/moduli
+      rm $tmpfile
     creates: /etc/ssh/moduli.bak
   notify: restart sshd
