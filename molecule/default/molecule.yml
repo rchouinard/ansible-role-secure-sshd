@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: fedora-rawhide
+    image: docker.io/fedora:rawhide
+    pre_build_image: true
+  - name: fedora-31
+    image: docker.io/fedora:31
+    pre_build_image: true
+  - name: fedora-30
+    image: docker.io/fedora:30
+    pre_build_image: true
+  - name: centos-8
+    image: docker.io/centos:8
+    pre_build_image: true
+  - name: centos-7
+    image: docker.io/centos:7
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

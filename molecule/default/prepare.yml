@@ -1,0 +1,19 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+
+  - name: Install required packages
+    package:
+      name:
+      - openssh-server
+      - sudo
+      state: present
+
+  - name: Generate host keys
+    command:
+      cmd: "{% if ansible_distribution_major_version != '7' %}/usr/libexec/openssh{% else %}/usr/sbin{% endif %}/sshd-keygen {{ item }}"
+    loop:
+    - rsa
+    - ecdsa
+    - ed25519
